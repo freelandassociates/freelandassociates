@@ -2,6 +2,9 @@ use Rack::Static,
   :urls => ["/images", "/js", "/css"],
   :root => "public"
 
+require 'newrelic_rpm'
+require 'new_relic/agent/instrumentation/rack'
+
 run lambda { |env|
   [
     200, 
